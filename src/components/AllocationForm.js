@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
-
+    const { dispatch,remaining } = useContext(AppContext);
+    // const {expenses}=useContext(AppContext);
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
@@ -11,10 +11,14 @@ const AllocationForm = (props) => {
     const submitEvent = () => {
 
             if(cost > remaining) {
-                alert("The value cannot exceed remaining funds  £"+remaining);
+                alert("The value cannot exceed remaining funds  $"+remaining);
                 setCost("");
                 return;
             }
+            // if (budget < expenses) {
+            //     alert("You cannot reduce the budget value lower than the spending")
+            //     return;
+            // }
 
         const expense = {
             name: name,
@@ -54,26 +58,24 @@ const AllocationForm = (props) => {
                     <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
                 <label className="input-group-text" htmlFor="inputGroupSelect02">Allocation</label>
                   </div>
+                  
                   <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
                         <option defaultValue value="Add" name="Add">Add</option>
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
-
-                    <input
-                        required='required'
-                        type='number'
-                        id='cost'
-                        value={cost}
-                        style={{ marginLeft: '2rem' , size: 10}}
+                 
+                  <div>
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$</label>
+                  <input required='required' type='number' id='cost' value={cost} style={{ size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
                         </input>
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
                     </button>
+                    </div>
                 </div>
                 </div>
-
         </div>
     );
 };

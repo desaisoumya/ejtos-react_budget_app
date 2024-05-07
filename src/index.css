@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.currencyDropdown {
+    background-color: lightblue;
+    font-size: medium;
+    border-color: lightblue;
+}
+
+.increaseButton {
+    background-color: lightgreen;
+    border-radius: 50%;
+    color: white;
+border: none;
+   height: 30px;
+width: 30px;
+font-size: 20px;
+text-align: center;
+font-weight: 1000;
+}
+
+.decreaseButton {
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    border: none;
+    height: 30px;
+width: 30px;
+font-size: 20px;
+text-align: center;
+font-weight: 1000;
+}
